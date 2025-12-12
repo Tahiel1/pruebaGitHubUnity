@@ -4,15 +4,17 @@ using PurrNet;
 
 public class TestNetwork : NetworkIdentity
 {
-    [SerializeField] private NetworkIdentity _networkIdentity;
+    [SerializeField] private Color _color;
+    [SerializeField] private Renderer _renderer;
 
-    protected override void OnSpawned()
+    private void Update()
     {
-        base.OnSpawned();
+        if (Input.GetKeyDown(KeyCode.A))
+            SetColor();
+    }
 
-        if (!isServer)
-            return;
-
-        Instantiate(_networkIdentity, Vector3.zero, Quaternion.identity);
+    private void SetColor()
+    {
+        _renderer.material.color = _color;
     }
 }
