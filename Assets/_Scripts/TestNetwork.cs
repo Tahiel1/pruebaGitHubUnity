@@ -13,6 +13,7 @@ public class TestNetwork : NetworkIdentity
             SetColor();
     }
 
+    [ObserversRpc]
     private void SetColor()
     {
         _renderer.material.color = _color;
